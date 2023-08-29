@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <link rel="stylesheet" href="./pages/index.css">
-        <script defer="defer" src="main.js"></script>
+        <script src="main.js" defer></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Место</title>
@@ -13,13 +13,11 @@
         </header>
         <main>
           <section class="profile">
-            <div class="profile__img-container">
-              <img class="profile__img" src="images/a7233788306cac3effd4b76fc303b493.jpeg" alt="Фото профиля">
-            </div>
+            <div class="profile__img"></div>
             <div class="profile__info">
               <div class="profile__container">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button class="profile__edit-btn hoover">
+                <button class="profile__edit-btn hoover" type="button">
                   <img class="profile__edit-btn-img" src="images/editButton.svg" alt="Иконка редактировать">
                 </button>
               </div>
@@ -31,8 +29,8 @@
             <div class="elements__card">
               <img class="elements__img" src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото старой церкви">
               <div class="elements__card-container">
-                <h1 class="elements__title">Карачаевск</h1>
-                <button class="elements__like-btn hoover">
+                <h2 class="elements__title">Карачаевск</h2>
+                <button class="elements__like-btn hoover-like" type="button">
                   <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
                 </button>
               </div>
@@ -40,8 +38,8 @@
             <div class="elements__card">
               <img class="elements__img" src="images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
               <div class="elements__card-container">
-                <h1 class="elements__title">Гора Эльбрус</h1>
-                <button class="elements__like-btn hoover">
+                <h2 class="elements__title">Гора Эльбрус</h2>
+                <button class="elements__like-btn hoover-like" type="button">
                   <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
                 </button>
               </div>
@@ -49,8 +47,8 @@
             <div class="elements__card">
               <img class="elements__img" src="images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
               <div class="elements__card-container">
-                <h1 class="elements__title">Домбай</h1>
-                <button class="elements__like-btn hoover">
+                <h2 class="elements__title">Домбай</h2>
+                <button class="elements__like-btn hoover-like" type="button">
                   <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
                 </button>
               </div>
@@ -58,8 +56,8 @@
             <div class="elements__card">
               <img class="elements__img" src="images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
               <div class="elements__card-container">
-                <h1 class="elements__title">Гора Эльбрус</h1>
-                <button class="elements__like-btn hoover">
+                <h2 class="elements__title">Гора Эльбрус</h2>
+                <button class="elements__like-btn hoover-like" type="button">
                   <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
                 </button>
               </div>
@@ -67,8 +65,8 @@
             <div class="elements__card">
               <img class="elements__img" src="images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
               <div class="elements__card-container">
-                <h1 class="elements__title">Домбай</h1>
-                <button class="elements__like-btn hoover">
+                <h2 class="elements__title">Домбай</h2>
+                <button class="elements__like-btn hoover-like" type="button">
                   <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
                 </button>
               </div>
@@ -76,8 +74,8 @@
             <div class="elements__card">
               <img class="elements__img" src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото старой церкви">
               <div class="elements__card-container">
-                <h1 class="elements__title">КарачаевскКарачаевскКарачаевск</h1>
-                <button class="elements__like-btn hoover">
+                <h2 class="elements__title">КарачаевскКарачаевскКарачаевск</h2>
+                <button class="elements__like-btn hoover-like" type="button">
                   <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
                 </button>
               </div>
@@ -85,20 +83,16 @@
           </section>
         </main>
         <footer class="footer">
-          <h1 class="footer__title">© 2020 Mesto Russia</h1>
+          <p class="footer__title">© 2020 Mesto Russia</p>
         </footer>
         <div class="popup">
           <div class="popup__container">
             <button class="popup__close-btn hoover" type="button"></button>
-            <h1 class="popup__title">Редактировать профиль</h1>
-            <form class="popup__form" id="infoEditForm">
-              <label class="popup__label">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__form" id="infoEditForm" method="post" name="profileEditForm">
                 <input class="popup__input" placeholder="Имя" name="name" id="nameInput" required="">
-              </label>
-              <label class="popup__label">
                 <input class="popup__input" placeholder="Вид деятельности" name="about" id="jobInput" required="">
-              </label>
-              <button class="popup__save-btn hoover" type="submit">Сохранить</button>
+              <button class="popup__save-btn hoover-save" type="submit">Сохранить</button>
             </form>
           </div>
         </div>
