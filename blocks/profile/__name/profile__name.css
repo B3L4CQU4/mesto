@@ -6,7 +6,6 @@
   font-weight: 500;
   line-height: 48px;
   width: 294px;
-  height: 39px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -19,6 +18,5 @@
     font-size: 27px;
     line-height: normal;
     width: 189px;
-    height: 26px;
   }
 }
