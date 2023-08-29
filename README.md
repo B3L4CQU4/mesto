@@ -1,5 +1,5 @@
 # Проект: Место
-[Демо на github Pages]()
+[Демо на github Pages](https://b3l4cqu4.github.io/mesto/)
 
 ### Обзор
 Учебный проект [Yandex Практикум](https://praktikum.yandex.ru/web/ "Курс Веб-разработчик") - Одностраничный, адаптивный сайт, который создан с использованием HTML, CSS и JavaScript.
