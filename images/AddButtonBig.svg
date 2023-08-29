@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="282" height="50" viewBox="0 0 282 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g id="Add Button">
+    <rect id="Rectangle" x="1" y="1" width="280" height="48" rx="1" stroke="white" stroke-width="2"/>
+    <path id="Vector" d="M 152 23.778 L 142.222 23.778 L 142.222 14 L 139.778 14 L 139.778 23.778 L 130 23.778 L 130 26.222 L 139.778 26.222 L 139.778 36 L 142.222 36 L 142.222 26.222 L 152 26.222 L 152 23.778 Z" fill="white"/>
+  </g>
+</svg>

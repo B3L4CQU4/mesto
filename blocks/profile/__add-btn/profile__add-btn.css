@@ -1,0 +1,27 @@
+.profile__add-btn {
+  margin-left: calc(100% - 636px);
+  background: inherit;
+  background-image: url(../../../images/AddButton.svg);
+  background-repeat: no-repeat;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  margin-top: 32px;
+}
+
+@media screen and (max-width: 1060px) {
+  .profile__add-btn {
+    background-image: url(../../../images/AddButtonBig.svg);
+    margin-left: 0;
+    margin-top: 32px;
+    width: 282px;
+    height: 50px;
+  }
+}
