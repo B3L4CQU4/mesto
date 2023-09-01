@@ -1,8 +1,11 @@
-.elements__like-btn {
-  display: flex;
+.elements__del-btn {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 242px;
   background: none;
-  background-image: url(../../../images/group.svg);
+  background-image: url(../../../images/trash.svg);
   background-position: 50%;
+  background-repeat: no-repeat;
   color: inherit;
   border: none;
   padding: 0;

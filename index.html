@@ -18,74 +18,18 @@
               <div class="profile__container">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
                 <button class="profile__edit-btn hoover" type="button">
-                  <img class="profile__edit-btn-img" src="images/editButton.svg" alt="Иконка редактировать">
                 </button>
               </div>
               <p class="profile__job">Исследователь океана</p>
             </div>
             <button class="profile__add-btn hoover" type="button"></button>
           </section>
-          <section class="elements">
-            <div class="elements__card">
-              <img class="elements__img" src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото старой церкви">
-              <div class="elements__card-container">
-                <h2 class="elements__title">Карачаевск</h2>
-                <button class="elements__like-btn hoover-like" type="button">
-                  <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
-                </button>
-              </div>
-            </div>
-            <div class="elements__card">
-              <img class="elements__img" src="images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
-              <div class="elements__card-container">
-                <h2 class="elements__title">Гора Эльбрус</h2>
-                <button class="elements__like-btn hoover-like" type="button">
-                  <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
-                </button>
-              </div>
-            </div>
-            <div class="elements__card">
-              <img class="elements__img" src="images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
-              <div class="elements__card-container">
-                <h2 class="elements__title">Домбай</h2>
-                <button class="elements__like-btn hoover-like" type="button">
-                  <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
-                </button>
-              </div>
-            </div>
-            <div class="elements__card">
-              <img class="elements__img" src="images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
-              <div class="elements__card-container">
-                <h2 class="elements__title">Гора Эльбрус</h2>
-                <button class="elements__like-btn hoover-like" type="button">
-                  <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
-                </button>
-              </div>
-            </div>
-            <div class="elements__card">
-              <img class="elements__img" src="images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
-              <div class="elements__card-container">
-                <h2 class="elements__title">Домбай</h2>
-                <button class="elements__like-btn hoover-like" type="button">
-                  <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
-                </button>
-              </div>
-            </div>
-            <div class="elements__card">
-              <img class="elements__img" src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото старой церкви">
-              <div class="elements__card-container">
-                <h2 class="elements__title">КарачаевскКарачаевскКарачаевск</h2>
-                <button class="elements__like-btn hoover-like" type="button">
-                  <img class="elements__like-btn-img" src="images/group.svg" alt="Иконка Лайк">
-                </button>
-              </div>
-            </div>
-          </section>
+          <section class="elements"></section>
         </main>
         <footer class="footer">
           <p class="footer__title">© 2020 Mesto Russia</p>
         </footer>
-        <div class="popup">
+        <div class="popup" id="profileEditPopup">
           <div class="popup__container">
             <button class="popup__close-btn hoover" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
@@ -96,5 +40,33 @@
             </form>
           </div>
         </div>
+        <div class="popup" id="addCardPopup">
+          <div class="popup__container">
+            <button class="popup__close-btn hoover" type="button"></button>
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup__form" id="addCardForm" method="post" name="addCardForm">
+                <input class="popup__input" placeholder="Название" name="title" id="titleInput" required="">
+                <input class="popup__input" placeholder="Ссылка на картинку" name="URL" id="urlInput" required="">
+              <button class="popup__save-btn hoover-save" type="submit">Сохранить</button>
+            </form>
+          </div>
+        </div>
+        <div class="popup" id="popup_image">
+          <div class="popup__content">
+            <button class="popup__close-btn hoover" type="button"></button>
+            <img class="popup__image" src="" alt="">
+            <p class="popup__image-title"></p>
+          </div>
+        </div>
+        <template id="element-cards">
+          <div class="elements__card">
+            <button class="elements__del-btn hoover" type="button"></button>
+            <img class="elements__img" src="" alt="">
+            <div class="elements__card-container">
+              <h2 class="elements__title"></h2>
+              <button class="elements__like-btn hoover-like" type="button"></button>
+            </div>
+          </div>
+        </template>
     </body>
 </html>
