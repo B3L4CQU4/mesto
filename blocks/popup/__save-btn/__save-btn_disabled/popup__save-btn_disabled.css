@@ -1,0 +1,5 @@
+.popup__save-btn_disabled {
+  background-color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.2);
+}

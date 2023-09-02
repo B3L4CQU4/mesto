@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="./pages/index.css">
         <script src="scripts/initialCards.js" defer></script>
+        <script src="scripts/validation.js" defer></script>
         <script src="scripts/main.js" defer></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,9 +35,11 @@
           <div class="popup__container">
             <button class="popup__close-btn hoover" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" id="infoEditForm" method="post" name="profileEditForm">
-                <input class="popup__input" placeholder="Имя" name="name" id="nameInput" required="">
-                <input class="popup__input" placeholder="Вид деятельности" name="about" id="jobInput" required="">
+            <form class="popup__form" id="infoEditForm" method="post" name="profileEditForm" novalidate>
+                <input class="popup__input" autocomplete="off" placeholder="Имя" name="name" id="nameInput" minlength="2" maxlength="40" required>
+                <span id="name-error" class="error"></span>
+                <input class="popup__input" autocomplete="off" placeholder="Вид деятельности" name="about" id="jobInput" minlength="2" maxlength="40" required>
+                <span id="about-error" class="error"></span>
               <button class="popup__save-btn hoover-save" type="submit">Сохранить</button>
             </form>
           </div>
@@ -45,9 +48,11 @@
           <div class="popup__container">
             <button class="popup__close-btn hoover" type="button"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="popup__form" id="addCardForm" method="post" name="addCardForm">
-                <input class="popup__input" placeholder="Название" name="title" id="titleInput" required="">
-                <input class="popup__input" placeholder="Ссылка на картинку" name="URL" id="urlInput" required="">
+            <form class="popup__form" id="addCardForm" method="post" name="addCardForm" novalidate>
+                <input class="popup__input" autocomplete="off" placeholder="Название" name="title" id="titleInput" minlength="2" maxlength="30" required>
+                <span id="title-error" class="error"></span>
+                <input class="popup__input" placeholder="Ссылка на картинку" name="URL" id="urlInput" type="url" required>
+                <span id="URL-error" class="error"></span>
               <button class="popup__save-btn hoover-save" type="submit">Сохранить</button>
             </form>
           </div>
