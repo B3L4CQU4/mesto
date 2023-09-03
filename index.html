@@ -19,12 +19,12 @@
             <div class="profile__info">
               <div class="profile__container">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button class="profile__edit-btn hoover" type="button">
+                <button class="profile__edit-btn hoover" id="openBtn" type="button">
                 </button>
               </div>
               <p class="profile__job">Исследователь океана</p>
             </div>
-            <button class="profile__add-btn hoover" type="button"></button>
+            <button class="profile__add-btn hoover" id="openBtn" type="button"></button>
           </section>
           <section class="elements"></section>
         </main>
@@ -38,7 +38,7 @@
             <form class="popup__form" id="infoEditForm" method="post" name="profileEditForm" novalidate>
                 <input class="popup__input" autocomplete="off" placeholder="Имя" name="name" id="nameInput" minlength="2" maxlength="40" required>
                 <span id="name-error" class="error"></span>
-                <input class="popup__input" autocomplete="off" placeholder="Вид деятельности" name="about" id="jobInput" minlength="2" maxlength="40" required>
+                <input class="popup__input" autocomplete="off" placeholder="Вид деятельности" name="about" id="jobInput" minlength="2" maxlength="200" required>
                 <span id="about-error" class="error"></span>
               <button class="popup__save-btn hoover-save" type="submit">Сохранить</button>
             </form>

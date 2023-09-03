@@ -50,6 +50,7 @@ function closePopupEscBtn(evt) {
   if (evt.key === 'Escape') {
     const popup = document.querySelector('.popup_is-opened')
     closePopup(popup);
+    popup.querySelector('.popup__form').reset()
   }
 }
 
@@ -65,6 +66,7 @@ function handleProfileFormSubmit (evt) {
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
     closePopup(profileEditPopup);
+    profileFormElement.reset();
 }
 
 // Обработчик «отправки» формы добавления карточки
@@ -154,12 +156,13 @@ addCardBtn.addEventListener('click', () => {
 //вызов закрытия попапа профайла на клик по крестику
 profileEditCloseBtn.addEventListener('click', () => {
   closePopup(profileEditPopup);
+  profileFormElement.reset();
 });
 
 //вызов закрытия попапа карточки на клик по крестику
 addCardCloseBtn.addEventListener('click', () => {
   closePopup(addCardPopup);
-  addCardFormElement.reset()
+  addCardFormElement.reset();
 });
 
 //вызов закрытия попапа zoom на клик по крестику
@@ -169,7 +172,8 @@ zoomCloseButton.addEventListener('click', () => {
 
 profileEditPopup.addEventListener('click', (evt) => {
   if (evt.target.classList.contains('popup')) {
-    closePopup(profileEditPopup)
+    closePopup(profileEditPopup);
+    profileFormElement.reset();
   }
 });
 

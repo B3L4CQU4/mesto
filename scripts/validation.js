@@ -27,6 +27,8 @@ function checkInput(inputElement, formElement, config) {
 }
 
 function toggleBtn(buttonElement, isActive, config) {
+  buttonElement.disabled = 'disabled';
+  buttonElement.classList.add(config.inactiveButtonClass);
   if (isActive) {
     buttonElement.disabled = false;
     buttonElement.classList.remove(config.inactiveButtonClass);
@@ -56,3 +58,10 @@ function validateForms(config) {
 }
 
 validateForms(config);
+
+const openBtns = document.querySelectorAll('#openBtn');
+openBtns.forEach((openBtnElement) => {
+  openBtnElement.addEventListener('click', () => {
+    validateForms(config);
+  })
+})
