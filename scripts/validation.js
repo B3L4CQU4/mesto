@@ -57,9 +57,11 @@ function validateForms(config) {
   })
 }
 
-validateForms(config);
+const openBtns = [
+  document.querySelector('.profile__edit-btn'),
+  document.querySelector('.profile__add-btn')
+]
 
-const openBtns = document.querySelectorAll('#openBtn');
 openBtns.forEach((openBtnElement) => {
   openBtnElement.addEventListener('click', () => {
     validateForms(config);

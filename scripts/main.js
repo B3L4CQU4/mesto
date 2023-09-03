@@ -50,7 +50,9 @@ function closePopupEscBtn(evt) {
   if (evt.key === 'Escape') {
     const popup = document.querySelector('.popup_is-opened')
     closePopup(popup);
-    popup.querySelector('.popup__form').reset()
+    if (popup.querySelector('.popup__form') !== null) {
+      popup.querySelector('.popup__form').reset()
+    }
   }
 }
 
