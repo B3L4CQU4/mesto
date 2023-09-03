@@ -27,8 +27,6 @@ function checkInput(inputElement, formElement, config) {
 }
 
 function toggleBtn(buttonElement, isActive, config) {
-  buttonElement.disabled = 'disabled';
-  buttonElement.classList.add(config.inactiveButtonClass);
   if (isActive) {
     buttonElement.disabled = false;
     buttonElement.classList.remove(config.inactiveButtonClass);
@@ -44,8 +42,8 @@ function setEvenetListener(formElement, config) {
   toggleBtn(saveBtnElement, formElement.checkValidity(), config);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
-      toggleBtn(saveBtnElement, formElement.checkValidity(), config);
       checkInput(inputElement, formElement, config);
+      toggleBtn(saveBtnElement, formElement.checkValidity(), config);
     })
   })
 }
