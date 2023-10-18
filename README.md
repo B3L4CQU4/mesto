@@ -7,7 +7,7 @@
 
 **Стэк технологий**
 
-HTML5 | CSS3 | JavaScript | БЭМ / файловая структура в соответствии с Nested БЭМ | адаптивная верстка | Grid Layout и Flexbox-верстка
+HTML5 | CSS3 | JavaScript | БЭМ / файловая структура в соответствии с Nested БЭМ | адаптивная верстка | Grid Layout и Flexbox-верстка | ООП | Валидация форм
 
 **Figma**
 

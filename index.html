@@ -2,8 +2,7 @@
 <html lang="ru">
     <head>
         <link rel="stylesheet" href="./pages/index.css">
-        <script src="scripts/initialCards.js" defer></script>
-        <script type="module" src="scripts/main.js" defer></script>
+        <script type="module" src="scripts/main.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Место</title>
@@ -56,19 +55,17 @@
             </form>
           </div>
         </div>
-        <div class="popup" id="popup_image">
+        <div class="popup popup__zoombg" id="popup_image">
           <div class="popup__content">
             <button class="popup__close-btn hoover" type="button"></button>
-            <!-- автотесты не пускают без явного указания src -->
-            <img class="popup__image" src="images/trash.svg" alt="">
+            <img class="popup__image" src="#" alt="">
             <p class="popup__image-title"></p>
           </div>
         </div>
         <template id="element-cards">
           <div class="elements__card">
             <button class="elements__del-btn hoover" type="button"></button>
-            <!-- автотесты не пускают без явного указания src -->
-            <img class="elements__img" src="images/trash.svg" alt="">
+            <img class="elements__img" src="#" alt="">
             <div class="elements__card-container">
               <h2 class="elements__title"></h2>
               <button class="elements__like-btn hoover-like" type="button"></button>

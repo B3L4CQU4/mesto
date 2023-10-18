@@ -43,14 +43,19 @@ class FormValidator {
       });
     });
   }
+  resetValidationState() {
+    const inputList = this._formElement.querySelectorAll(this._config.inputSelector);
+
+    inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement, inputElement.nextElementSibling);
+    });
+
+    this._toggleButtonState();
+  }
 
   enableValidation() {
     this._formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
-    });
-
-    this._formElement.querySelectorAll(this._config.inputSelector).forEach((inputElement) => {
-      this._hideInputError(inputElement, inputElement.nextElementSibling);
     });
 
     this._setEventListeners();

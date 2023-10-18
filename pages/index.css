@@ -50,3 +50,4 @@
 @import url(../blocks/popup/__image-title/popup__image-title.css);
 @import url(../blocks/popup/__form/_invalid/popup__form_invalid.css);
 @import url(../blocks/popup/__save-btn/__save-btn_disabled/popup__save-btn_disabled.css);
+@import url(../blocks/popup/__zoombg/popup__zoombg.css);
