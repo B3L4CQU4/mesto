@@ -110,7 +110,7 @@ function addCardsToPage(cardsList) {
   });
 }
 
-//вызов функций переключения и обновления данных на клик по кнопке редактировать профиль
+//вызов функций переключения и обновления данных по кнопке редактировать профиль
 profileEditOpenBtn.addEventListener('click', () => {
   openPopup(profileEditPopup);
   getInfoText();
