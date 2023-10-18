@@ -100,7 +100,7 @@ function handleAddCardFormSubmit(evt) {
   addCardFormElement.reset();
 }
 
-// функция добавления карточек из списка на страницу
+// функция добавления карточек из списка
 function addCardsToPage(cardsList) {
   const elementsSection = document.querySelector('.elements');
 
