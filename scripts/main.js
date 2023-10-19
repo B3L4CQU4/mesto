@@ -85,13 +85,7 @@ function openPopupCallback(imageUrl, imageAlt) {
 }
 
 function createCard(cardData) {
-  const card = new Card(cardData, '#element-cards');
-
-  // Добавляем обработчик для открытия попапа с изображением
-  card.setOpenPopupCallback(() => {
-    openPopupCallback(cardData.link, cardData.name);
-  });
-
+  const card = new Card(cardData, '#element-cards', openPopupCallback);
   return card.makeCard();
 }
 
@@ -110,8 +104,6 @@ function handleAddCardFormSubmit(evt) {
   const elementsSection = document.querySelector('.elements');
   elementsSection.prepend(createCard(newCardData));
   closePopup(addCardPopup);
-
-  addCardFormElement.reset();
 }
 
 // функция добавления карточек из списка
@@ -127,11 +119,13 @@ function addCardsToPage(cardsList) {
 profileEditOpenBtn.addEventListener('click', () => {
   openPopup(profileEditPopup);
   getInfoText();
+  validatorProfileForm.resetValidationState();
 });
 // вызов функций переключения на клик по кнопке добавить
 addCardBtn.addEventListener('click', () => {
   openPopup(addCardPopup);
   addCardFormElement.reset();
+  validatorAddCardForm.resetValidationState();
 });
 
 // вызов закрытия попапа профайла на клик по крестику
@@ -167,21 +161,11 @@ zoomPopup.addEventListener('click', (evt) => {
   handleOverlayClick(evt)
 });
 
-function handleEditButtonClick(form) {
-  const formElement = form.querySelector('.popup__form');
-  const validator = new FormValidator(config, formElement);
-  validator.resetValidationState();
-  validator.enableValidation();
-}
-
-// слушатели событий на кнопки редактирования профиля и добавления карточки
-profileEditOpenBtn.addEventListener('click', () => {
-  handleEditButtonClick(profileEditPopup);
-});
-
-addCardBtn.addEventListener('click', () => {
-  handleEditButtonClick(addCardPopup);
-});
+// включение валидации
+const validatorProfileForm = new FormValidator(config, profileFormElement);
+validatorProfileForm .enableValidation();
+const validatorAddCardForm = new FormValidator(config, addCardFormElement);
+validatorAddCardForm.enableValidation();
 
 // вызов сохранения формы
 profileFormElement.addEventListener('submit', handleProfileFormSubmit);

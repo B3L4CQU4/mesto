@@ -2,6 +2,8 @@ class FormValidator {
   constructor(config, formElement) {
     this._formElement = formElement;
     this._config = config;
+    this._inputList = formElement.querySelectorAll(config.inputSelector);
+    this._saveBtnElement = formElement.querySelector(config.saveBtnElement);
   }
 
   _showInputError(inputElement, errorElement) {
@@ -24,29 +26,26 @@ class FormValidator {
   }
 
   _toggleButtonState() {
-    const saveBtnElement = this._formElement.querySelector(this._config.saveBtnElement);
     if (this._formElement.checkValidity()) {
-      saveBtnElement.disabled = false;
-      saveBtnElement.classList.remove(this._config.inactiveButtonClass);
+      this._saveBtnElement.disabled = false;
+      this._saveBtnElement.classList.remove(this._config.inactiveButtonClass);
     } else {
-      saveBtnElement.disabled = 'disabled';
-      saveBtnElement.classList.add(this._config.inactiveButtonClass);
+      this._saveBtnElement.disabled = 'disabled';
+      this._saveBtnElement.classList.add(this._config.inactiveButtonClass);
     }
   }
 
   _setEventListeners() {
-    const inputList = this._formElement.querySelectorAll(this._config.inputSelector);
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
       });
     });
   }
-  resetValidationState() {
-    const inputList = this._formElement.querySelectorAll(this._config.inputSelector);
 
-    inputList.forEach((inputElement) => {
+  resetValidationState() {
+    this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement, inputElement.nextElementSibling);
     });
 

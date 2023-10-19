@@ -44,12 +44,8 @@ class Card {
 
   _handleZoomImage() {
     if (this._openPopupCallback) {
-      this._openPopupCallback();
+      this._openPopupCallback(this._link, this._name);
     }
-  }
-
-  setOpenPopupCallback(callback) {
-    this._openPopupCallback = callback;
   }
 
   makeCard() {
