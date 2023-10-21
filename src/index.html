@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <link rel="stylesheet" href="./pages/index.css">
-        <script type="module" src="scripts/main.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Место</title>
     </head>
     <body class="page">
         <header class="header">
-          <img class="header__logo" src="images/logo.svg" alt="Логотип Место">
+          <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип Место">
         </header>
         <main>
           <section class="profile">
@@ -36,8 +34,8 @@
             <form class="popup__form" id="infoEditForm" method="post" name="profileEditForm" novalidate>
                 <input class="popup__input" autocomplete="off" placeholder="Имя" name="name" id="nameInput" minlength="2" maxlength="40" required>
                 <span id="name-error" class="error"></span>
-                <input class="popup__input" autocomplete="off" placeholder="Вид деятельности" name="about" id="jobInput" minlength="2" maxlength="200" required>
-                <span id="about-error" class="error"></span>
+                <input class="popup__input" autocomplete="off" placeholder="Вид деятельности" name="job" id="jobInput" minlength="2" maxlength="200" required>
+                <span id="job-error" class="error"></span>
               <button class="popup__save-btn hoover-save" type="submit">Сохранить</button>
             </form>
           </div>

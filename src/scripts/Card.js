@@ -1,9 +1,9 @@
 class Card {
-  constructor (cardData, cardSelector, openPopupCallback){
+  constructor (cardData, cardSelector, imagePopup){
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
-    this._openPopupCallback = openPopupCallback;
+    this._imagePopup = imagePopup;
 
     this._element = this._getCardTemplate();
     this._likeButton = this._element.querySelector('.elements__like-btn');
@@ -43,9 +43,7 @@ class Card {
   }
 
   _handleZoomImage() {
-    if (this._openPopupCallback) {
-      this._openPopupCallback(this._link, this._name);
-    }
+    this._imagePopup.open(this._cardImage.src, this._cardImage.alt);
   }
 
   makeCard() {
