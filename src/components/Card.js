@@ -1,9 +1,9 @@
 class Card {
-  constructor (cardData, cardSelector, imagePopup){
+  constructor (cardData, cardSelector, handleCardClick){
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
-    this._imagePopup = imagePopup;
+    this._handleCardClick = handleCardClick;
 
     this._element = this._getCardTemplate();
     this._likeButton = this._element.querySelector('.elements__like-btn');
@@ -34,16 +34,15 @@ class Card {
   }
 
   _handleLikeBtn() {
-    this._element
-      .querySelector('.elements__like-btn')
-      .classList.toggle('elements__like-btn_active');
+    this._likeButton.classList.toggle('elements__like-btn_active');
   }
   _removeCard() {
     this._element.remove();
+    this._element = null
   }
 
   _handleZoomImage() {
-    this._imagePopup.open(this._cardImage.src, this._cardImage.alt);
+    this._handleCardClick(this._cardImage.src, this._cardImage.alt);
   }
 
   makeCard() {
