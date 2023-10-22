@@ -161,7 +161,7 @@ const avatarEditPopup = document.querySelector('#avatarEditPopup');
 const avatarEditForm = avatarEditPopup.querySelector('#avatarEditForm');
 
 const avatarEditPopupInstance = new PopupWithForm('#avatarEditPopup', (formData) => {
-  api.updateAvatar(formData.URL)
+  api.updateAvatar(formData.avatarUrl)
     .then(data => {
       userInfo.setAvatar(data.avatar);
       avatarEditPopupInstance.close();

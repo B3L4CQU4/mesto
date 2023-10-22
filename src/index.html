@@ -7,7 +7,7 @@
     </head>
     <body class="page">
         <header class="header">
-          <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип Место">
+          <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип Место"></img>
         </header>
         <main>
           <section class="profile">
@@ -49,8 +49,8 @@
             <button class="popup__close-btn hoover" type="button"></button>
             <form class="popup__form" id="avatarEditForm" method="post" name="avatarEditForm" novalidate>
               <h2 class="popup__title popup__title_avatar">Обновить аватар</h2>
-                <input class="popup__input" placeholder="Ссылка на картинку" name="URL" id="urlInput" type="url" required>
-                <span id="URL-error" class="error"></span>
+                <input class="popup__input" placeholder="Ссылка на картинку" name="avatarUrl" id="avatarUrlInput" type="url" required>
+                <span id="avatarUrl-error" class="error"></span>
               <button class="popup__save-btn hoover-save popup__save-btn_disabled" type="submit" disabled>Сохранить</button>
             </form>
           </div>
