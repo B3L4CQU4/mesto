@@ -100,6 +100,9 @@ const addCardPopupInstance = new PopupWithForm('#addCardPopup', (formData) => {
       cardSection.addItemPrepend(card);
       addCardPopupInstance.close();
     })
+    .then(() => {
+      addCardPopupInstance.close();
+    })
     .catch(err => {
       console.error(err);
     })
@@ -118,11 +121,13 @@ const profileEditPopupInstance = new PopupWithForm('#profileEditPopup', (formDat
         job: data.about
       });
     })
+    .then(()=> {
+      profileEditPopupInstance.close();
+    })
     .catch(err => {
       console.error(err);
     })
     .finally(()=> {
-      profileEditPopupInstance.close();
       profileEditPopupInstance.setSubmitButtonText('Сохранить');
     });
 });
@@ -148,6 +153,8 @@ const avatarEditPopupInstance = new PopupWithForm('#avatarEditPopup', (formData)
   api.updateAvatar(formData.avatarUrl)
     .then(data => {
       userInfo.setAvatar(data.avatar);
+    })
+    .then(() => {
       avatarEditPopupInstance.close();
     })
     .catch(err => {
