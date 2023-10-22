@@ -6,7 +6,7 @@ class Card {
     this._handleCardClick = handleCardClick;
     this._ownerId = cardData.owner._id;
     this._likes = cardData.likes;
-    this._cardId = cardData._id;
+    this.cardId = cardData._id;
     this._getUserIdCallback = getUserIdCallback;
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeCallback = handleLikeCallback;
@@ -42,7 +42,7 @@ class Card {
       });
   }
 
-  _removeCard() {
+  removeCard() {
     this._element.remove();
     this._element = null
   }
@@ -54,7 +54,7 @@ class Card {
   _handleLikeBtn() {
     // Если кнопка лайка активна, то снимаем лайк
     if (this._likeButton.classList.contains('elements__like-btn_active')) {
-      this._handleUnlikeCallback(this._cardId)
+      this._handleUnlikeCallback(this.cardId)
         .then((newCardData) => {
           this._likeButton.classList.remove('elements__like-btn_active');
           this._likesCounter.textContent = newCardData.likes.length;
@@ -63,7 +63,7 @@ class Card {
           console.error(error);
         });
     } else { // Иначе ставим лайк
-      this._handleLikeCallback(this._cardId)
+      this._handleLikeCallback(this.cardId)
         .then((newCardData) => {
           this._likeButton.classList.add('elements__like-btn_active');
           this._likesCounter.textContent = newCardData.likes.length;

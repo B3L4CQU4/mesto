@@ -33,18 +33,11 @@ export default class PopupWithForm extends Popup {
     this._formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
       this._submitButton.disabled = true;
-      Promise.resolve(this._submitHandler(this._getInputValues()))
-        .then(() => {
-          this._submitButton.textContent = 'Сохранение...';
-        })
-        .then(() => {
-          this._formElement.reset();
-        })
-        .catch(error => {
-          console.error('Ошибка при отправке данных на сервер:', error);
-        })
+      this._submitHandler(this._getInputValues());
+      this._submitButton.textContent = 'Сохранение...';
     });
   }
+
   close() {
     super.close();
     this._formElement.reset();

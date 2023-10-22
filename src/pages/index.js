@@ -30,14 +30,12 @@ const addCardFormElement = addCardPopup.querySelector('#addCardForm');
 
 const addCardBtn = document.querySelector('.profile').querySelector('.profile__add-btn');
 
-// Функция для рендеринга карточки
-function cardRenderer(item) {
-  const cardElement = createCard(item);
-  cardSection.addItemPrepend(cardElement);
-}
-
 // Создание экземпляра UserInfo
 const userInfo = new UserInfo('.profile__name', '.profile__job', '.profile__img');
+
+const cardSection = new Section({
+  renderer: createCard
+}, '.elements');
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cardsData]) => {
@@ -48,16 +46,13 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
       avatar: userData.avatar
     });
 
-    const renderedCards = cardsData.map(cardData => createCard(cardData));
-    renderedCards.forEach(card => {
-      cardSection.addItemAppend(card);
-    });
+    // Use the renderItems method to render the array of cards
+    cardSection.renderItems(cardsData);
   })
   .catch(err => {
     console.error(`Ошибка при получении данных: ${err}`);
   });
 
-const cardSection = new Section({ renderer: cardRenderer }, '.elements');
 
 const imagePopup = new PopupWithImage('#popup_image', '.popup__image', '.popup__image-title');
 imagePopup.setEventListeners();
@@ -66,10 +61,10 @@ function handleCardClick(src, alt) {
   imagePopup.open(src, alt);
 }
 
-const delPopupInstance = new PopupWithDelete('#delPopup', function() {
-  api.deleteCard(this._cardInstance._cardId)
+const delPopupInstance = new PopupWithDelete('#delPopup', function(cardInstance) {
+  api.deleteCard(cardInstance.cardId)
       .then(() => {
-          this._cardInstance._removeCard();
+          cardInstance.removeCard();
           delPopupInstance.close();
       })
       .catch(err => {
@@ -103,12 +98,12 @@ const addCardPopupInstance = new PopupWithForm('#addCardPopup', (formData) => {
     })
     .then(card => {
       cardSection.addItemPrepend(card);
+      addCardPopupInstance.close();
     })
     .catch(err => {
       console.error(err);
     })
     .finally(() => {
-      addCardPopupInstance.close()
       addCardPopupInstance.setSubmitButtonText('Сохранить');
     });
 });
@@ -146,9 +141,6 @@ addCardBtn.addEventListener('click', () => {
   validatorAddCardForm.resetValidationState();
 });
 
-const zoomPopupInstance = new Popup('#popup_image');
-zoomPopupInstance.setEventListeners();
-
 const avatarEditPopup = document.querySelector('#avatarEditPopup');
 const avatarEditForm = avatarEditPopup.querySelector('#avatarEditForm');
 
@@ -156,12 +148,12 @@ const avatarEditPopupInstance = new PopupWithForm('#avatarEditPopup', (formData)
   api.updateAvatar(formData.avatarUrl)
     .then(data => {
       userInfo.setAvatar(data.avatar);
+      avatarEditPopupInstance.close();
     })
     .catch(err => {
       console.error(err);
     })
     .finally(() => {
-      avatarEditPopupInstance.close();
       avatarEditPopupInstance.setSubmitButtonText('Сохранить');
     });
 });

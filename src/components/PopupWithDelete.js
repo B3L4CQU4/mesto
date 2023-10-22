@@ -3,33 +3,34 @@ import Popup from './Popup.js';
 export default class PopupWithDelete extends Popup {
     constructor(popupSelector, deleteHandler) {
         super(popupSelector);
-        this._deleteHandler = deleteHandler;
-        this._confirmDeleteButton = this._popup.querySelector('#delPopup .popup__save-btn');
+        this.deleteHandler = deleteHandler;
+        this.confirmDeleteButton = this._popup.querySelector('#delPopup .popup__save-btn');
 
-        this._setEventListeners();
+        this.setEventListeners();
     }
 
-    _setEventListeners() {
-        this._confirmDeleteButton.addEventListener('click', (evt) => {
+    setEventListeners() {
+        this.confirmDeleteButton.addEventListener('click', (evt) => {
             evt.preventDefault();
-            this._confirmDeleteButton.disabled = true;
-            this._deleteHandler();
+            this.confirmDeleteButton.disabled = true;
+            this.deleteHandler(this.cardInstance);
         });
 
         super.setEventListeners();
     }
 
     open(cardInstance) {
-        this._cardInstance = cardInstance;
+        this.cardInstance = cardInstance;
         super.open();
     }
 
     close() {
         super.close();
-        this._confirmDeleteButton.disabled = false;
+        this.confirmDeleteButton.disabled = false;
+        delete this.cardInstance;
     }
 
     setDeleteHandler(handler) {
-        this._deleteHandler = handler;
+        this.deleteHandler = handler;
     }
 }
