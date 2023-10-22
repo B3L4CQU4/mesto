@@ -6,8 +6,8 @@ export default class PopupWithForm extends Popup {
     this._submitHandler = submitHandler;
     this._formElement = this._popup.querySelector('.popup__form');
     this._inputList = Array.from(this._formElement.querySelectorAll('.popup__input'));
+    this._submitButton = this._formElement.querySelector('.popup__save-btn');
   }
-
   _getInputValues() {
     const inputValues = {};
 
@@ -18,23 +18,36 @@ export default class PopupWithForm extends Popup {
     return inputValues;
   }
 
-  setInputValues(data){
-    this._inputList.forEach((input) =>{
+  setInputValues(data) {
+    this._inputList.forEach(input => {
       input.value = data[input.name];
     });
+  }
+
+  setSubmitButtonText(text) {
+    this._submitButton.textContent = text;
   }
 
   setEventListeners() {
     super.setEventListeners();
     this._formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this._submitHandler(this._getInputValues());
-      this.close();
+      this._submitButton.disabled = true;
+      Promise.resolve(this._submitHandler(this._getInputValues()))
+        .then(() => {
+          this._submitButton.textContent = 'Сохранение...';
+        })
+        .then(() => {
+          this._formElement.reset();
+        })
+        .catch(error => {
+          console.error('Ошибка при отправке данных на сервер:', error);
+        })
     });
   }
-
   close() {
     super.close();
     this._formElement.reset();
+    this._submitButton.disabled = false;
   }
 }

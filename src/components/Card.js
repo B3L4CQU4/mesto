@@ -16,6 +16,8 @@ class Card {
     this._likeButton = this._element.querySelector('.elements__like-btn');
     this._deleteButton = this._element.querySelector('.elements__del-btn');
     this._cardImage = this._element.querySelector('.elements__img');
+    this._likesCounter= this._element.querySelector('.elements__likes-counter');
+    this._title = this._element.querySelector('.elements__title');
   }
 
   _getCardTemplate() {
@@ -32,16 +34,12 @@ class Card {
       });
 
     this._deleteButton.addEventListener('click', () => {
-        this._handleDeleteClick(this);;
+        this._handleDeleteClick(this);
       });
 
     this._cardImage.addEventListener('click', () => {
         this._handleZoomImage();
       });
-  }
-
-  _handleDeleteBtnClick() {
-    delPopupInstance.open();
   }
 
   _removeCard() {
@@ -59,7 +57,7 @@ class Card {
       this._handleUnlikeCallback(this._cardId)
         .then((newCardData) => {
           this._likeButton.classList.remove('elements__like-btn_active');
-          this._element.querySelector('.elements__likes-counter').textContent = newCardData.likes.length;
+          this._likesCounter.textContent = newCardData.likes.length;
         })
         .catch((error) => {
           console.error(error);
@@ -68,7 +66,7 @@ class Card {
       this._handleLikeCallback(this._cardId)
         .then((newCardData) => {
           this._likeButton.classList.add('elements__like-btn_active');
-          this._element.querySelector('.elements__likes-counter').textContent = newCardData.likes.length;
+          this._likesCounter.textContent = newCardData.likes.length;
         })
         .catch((error) => {
           console.error(error);
@@ -76,17 +74,17 @@ class Card {
     }
   }
 
-  async makeCard() {
+makeCard() {
 
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
-    this._element.querySelector('.elements__title').textContent = this._name;
+    this._title.textContent = this._name;
 
-    const currentUserId = await this._getUserIdCallback();
+    const currentUserId = this._getUserIdCallback();
 
     this._setEventListeners();
 
-    this._element.querySelector('.elements__likes-counter').textContent = this._likes.length;
+    this._likesCounter.textContent = this._likes.length;
 
     if (currentUserId !== this._ownerId) {
       this._deleteButton.style.display = 'none';
@@ -94,6 +92,8 @@ class Card {
 
     if (this._likes.some(user => user._id === currentUserId)) {
       this._likeButton.classList.add('elements__like-btn_active');
+    } else {
+      this._likeButton.classList.remove('elements__like-btn_active');
     }
 
 

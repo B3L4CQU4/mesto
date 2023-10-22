@@ -9,14 +9,14 @@ export default class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
-    .then(this._handleResponse);
+    .then(this._checkResponse);
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers
     })
-    .then(this._handleResponse);
+    .then(this._checkResponse);
   }
 
   updateProfile(name, about) {
@@ -28,12 +28,7 @@ export default class Api {
         about: about
       })
     })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      return Promise.reject(`Ошибка: ${response.status}`);
-    });
+    .then(this._checkResponse);
   }
 
   addCard(name, link) {
@@ -48,15 +43,10 @@ export default class Api {
         link: link
       })
     })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      return Promise.reject(`Ошибка: ${response.status}`);
-    });
+    .then(this._checkResponse);
   }
 
-  _handleResponse(res) {
+  _checkResponse(res) {
     if (res.ok) {
       return res.json();
     }
@@ -68,14 +58,7 @@ export default class Api {
       method: 'DELETE',
       headers: this._headers
     })
-    .then(this._getResponseData);
-  }
-
-  _getResponseData(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
+    .then(this._checkResponse);
   }
 
   likeCard(cardId) {
@@ -83,7 +66,7 @@ export default class Api {
       method: 'PUT',
       headers: this._headers
     })
-    .then(this._handleResponse);
+    .then(this._checkResponse);
   }
 
   unlikeCard(cardId) {
@@ -91,7 +74,7 @@ export default class Api {
       method: 'DELETE',
       headers: this._headers
     })
-    .then(this._handleResponse);
+    .then(this._checkResponse);
   }
 
   updateAvatar(avatarURL) {
@@ -102,11 +85,6 @@ export default class Api {
         avatar: avatarURL
       })
     })
-    .then(response => {
-      if (!response.ok) {
-        return Promise.reject(`Ошибка: ${response.status}`);
-      }
-      return response.json();
-    });
+    .then(this._checkResponse);
   }
 }
