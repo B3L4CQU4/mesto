@@ -1,0 +1,10 @@
+.elements__likes-counter {
+	margin: 0;
+	padding-top: 3px;
+	font-family: 'Inter', Arial, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	color: #000;
+}
